@@ -6,7 +6,7 @@
 /*   By: dabdygal <dabdygal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:03:13 by dabdygal          #+#    #+#             */
-/*   Updated: 2023/06/22 13:11:43 by dabdygal         ###   ########.fr       */
+/*   Updated: 2023/06/22 13:40:39 by dabdygal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -239,5 +239,12 @@ int	main(void)
 	{
 		printf("Found %c ", *(ptr_1 - 1));
 	}
-	printf("ft_memccpy %s from %s with %c by %d: %.10s\n", getName(char_arr_1), getName(char_arr_2), TEST_CHAR_3, ARR_SIZE, char_arr_1);
+	printf("ft_memccpy %s from %s with %c by %d: %.10s\n\n", getName(char_arr_1), getName(char_arr_2), TEST_CHAR_3, ARR_SIZE, char_arr_1);
+
+
+	// Testing memmove
+	printf("Testing memmove:\n");
+	memset(char_arr_1, TEST_CHAR_1, sizeof(char) * ARR_SIZE);
+	printf("memset %s with %c: %.*s\n", getName(char_arr_1), TEST_CHAR_1, ARR_SIZE, char_arr_1);
+	ptr_1 = char_arr_1 + TEST_VAL_1 - 1;
 }
