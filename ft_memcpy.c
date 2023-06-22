@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabdygal <dabdygal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/21 11:36:53 by dabdygal          #+#    #+#             */
-/*   Updated: 2023/06/22 13:11:41 by dabdygal         ###   ########.fr       */
+/*   Created: 2023/06/22 10:13:59 by dabdygal          #+#    #+#             */
+/*   Updated: 2023/06/22 11:22:31 by dabdygal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include <stddef.h>
 
-void	*ft_memset(void *s, int c, size_t n);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	char	*dest_str;
+	char	*src_str;
 
-#endif
+	dest_str = (char *) dest;
+	src_str = (char *) src;
+	while (n)
+	{
+		n--;
+		dest_str[n] = src_str[n];
+	}
+	return (dest);
+}

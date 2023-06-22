@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabdygal <dabdygal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/21 11:36:53 by dabdygal          #+#    #+#             */
-/*   Updated: 2023/06/22 13:11:41 by dabdygal         ###   ########.fr       */
+/*   Created: 2023/06/22 12:52:52 by dabdygal          #+#    #+#             */
+/*   Updated: 2023/06/22 13:11:43 by dabdygal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include <stddef.h>
 
-void	*ft_memset(void *s, int c, size_t n);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+{
+	char	*dest_str;
+	char	*src_str;
+	size_t		i;
 
-#endif
+	dest_str = (char *) dest;
+	src_str = (char *) src;
+	i = 0;
+	while (i < n)
+	{
+		dest_str[i] = src_str[i];
+		if (dest_str[i] == c)
+		{
+			return (dest + i + 1);
+		}
+		i++;
+	}
+	return (NULL);
+}

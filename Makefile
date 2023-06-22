@@ -6,7 +6,7 @@
 #    By: dabdygal <dabdygal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 14:51:38 by dabdygal          #+#    #+#              #
-#    Updated: 2023/06/21 12:56:35 by dabdygal         ###   ########.fr        #
+#    Updated: 2023/06/22 13:11:45 by dabdygal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,9 @@ MAIN_FOLDER = .
 SRC_FOLDER 	= .
 
 SRC_FILES 	= ft_memset.c \
+			  ft_bzero.c  \
+			  ft_memcpy.c \
+			  ft_memccpy.c \
 
 OBJECTS		= $(SRC_FILES:.c=.o)
 
