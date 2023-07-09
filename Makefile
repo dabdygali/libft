@@ -6,7 +6,7 @@
 #    By: dabdygal <dabdygal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 14:51:38 by dabdygal          #+#    #+#              #
-#    Updated: 2023/07/09 16:01:30 by dabdygal         ###   ########.fr        #
+#    Updated: 2023/07/09 16:29:29 by dabdygal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ LIB_NAME	= libft.a
 CFLAGS		= -Wall -Wextra -Werror -I $(INC_FOLDER)
 
 
-all: $(LIB_NAME)
+all: $(BIN_NAME)
 
 $(BIN_NAME): $(addprefix $(LIB_FOLDER)/,$(LIB_NAME)) $(addprefix $(MAIN_FOLDER)/,$(MAIN_SRC))
 	$(CC) $(CFLAGS) $(addprefix $(MAIN_FOLDER)/,$(MAIN_SRC)) -L$(LIB_FOLDER) $(LIB_NAME) -o $@
@@ -54,6 +54,6 @@ clean:
 	rm -f $(addprefix $(LIB_FOLDER)/,$(LIB_NAME))
 
 fclean: clean
-	rm -f $(LIB_NAME)
+	rm -f $(BIN_NAME)
 
 re: fclean all
