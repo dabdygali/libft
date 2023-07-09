@@ -6,7 +6,7 @@
 #    By: dabdygal <dabdygal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 14:51:38 by dabdygal          #+#    #+#              #
-#    Updated: 2023/06/22 13:11:45 by dabdygal         ###   ########.fr        #
+#    Updated: 2023/07/09 16:01:30 by dabdygal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC_FILES 	= ft_memset.c \
 			  ft_bzero.c  \
 			  ft_memcpy.c \
 			  ft_memccpy.c \
+			  ft_calloc.c \
 
 OBJECTS		= $(SRC_FILES:.c=.o)
 
@@ -33,10 +34,10 @@ LIB_FOLDER	= .
 
 LIB_NAME	= libft.a
 
-CFLAGS		= -Wall -Wextra -Werror -I $(INC_FOLDER) -fsanitize=address
+CFLAGS		= -Wall -Wextra -Werror -I $(INC_FOLDER)
 
 
-all: $(BIN_NAME)
+all: $(LIB_NAME)
 
 $(BIN_NAME): $(addprefix $(LIB_FOLDER)/,$(LIB_NAME)) $(addprefix $(MAIN_FOLDER)/,$(MAIN_SRC))
 	$(CC) $(CFLAGS) $(addprefix $(MAIN_FOLDER)/,$(MAIN_SRC)) -L$(LIB_FOLDER) $(LIB_NAME) -o $@
@@ -53,6 +54,6 @@ clean:
 	rm -f $(addprefix $(LIB_FOLDER)/,$(LIB_NAME))
 
 fclean: clean
-	rm -f $(BIN_NAME)
+	rm -f $(LIB_NAME)
 
 re: fclean all
