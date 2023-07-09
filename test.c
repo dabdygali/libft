@@ -6,7 +6,7 @@
 /*   By: dabdygal <dabdygal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:03:13 by dabdygal          #+#    #+#             */
-/*   Updated: 2023/06/22 13:40:39 by dabdygal         ###   ########.fr       */
+/*   Updated: 2023/07/08 17:19:05 by dabdygal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <strings.h>
 #include <stdio.h>
 #include "libft.h"
+#include <stdlib.h>
 
 #define ARR_SIZE 10
 #define TEST_CHAR_1 'a'
