@@ -6,15 +6,13 @@
 #    By: dabdygal <dabdygal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 14:51:38 by dabdygal          #+#    #+#              #
-#    Updated: 2023/07/12 15:53:29 by dabdygal         ###   ########.fr        #
+#    Updated: 2023/07/14 09:55:00 by dabdygal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 LIB_NAME	= libft.a
 
 CC			= cc
-
-SRC_FOLDER 	= .
 
 SRC_FILES 	= ft_memset.c \
 			  ft_bzero.c  \
@@ -53,24 +51,16 @@ SRC_FILES 	= ft_memset.c \
 
 OBJECTS		= $(SRC_FILES:.c=.o)
 
-INC_FOLDER 	= .
-
-LIB_FOLDER	= .
-
 CFLAGS		= -Wall -Wextra -Werror
 
 
 all: $(LIB_NAME)
 
-$(addprefix $(LIB_FOLDER)/,$(LIB_NAME)): $(addprefix $(SRC_FOLDER)/,$(OBJECTS))
-	ar rc $(addprefix $(LIB_FOLDER)/,$(LIB_NAME)) $(addprefix $(SRC_FOLDER)/,$(OBJECTS))
-	ranlib $(addprefix $(LIB_FOLDER)/,$(LIB_NAME))
-
-%.o:%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(LIB_NAME): $(OBJECTS)
+	ar rcs $(LIB_NAME) $(OBJECTS)
 
 clean:
-	rm -f $(addprefix $(SRC_FOLDER)/,$(OBJECTS))
+	rm -f $(OBJECTS)
 
 fclean: clean
 	rm -f $(LIB_NAME)
