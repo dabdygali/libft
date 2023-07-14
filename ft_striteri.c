@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabdygal <dabdygal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/21 17:31:15 by dabdygal          #+#    #+#             */
-/*   Updated: 2023/07/12 15:19:38 by dabdygal         ###   ########.fr       */
+/*   Created: 2023/07/12 15:08:16 by dabdygal          #+#    #+#             */
+/*   Updated: 2023/07/12 15:15:05 by dabdygal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-void	ft_bzero(void *s, size_t n)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	char	*str;
+	unsigned int	i;
 
-	str = (char *) s;
-	while (n)
+	if (!s || !f)
+		return ;
+	i = 0;
+	while (s[i])
 	{
-		n--;
-		str[n] = '\0';
+		f(i, &s[i]);
+		i++;
 	}
 }

@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabdygal <dabdygal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/21 17:31:15 by dabdygal          #+#    #+#             */
-/*   Updated: 2023/07/12 15:19:38 by dabdygal         ###   ########.fr       */
+/*   Created: 2023/07/04 14:56:24 by dabdygal          #+#    #+#             */
+/*   Updated: 2023/07/04 15:05:01 by dabdygal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void	ft_bzero(void *s, size_t n)
+size_t	ft_strlen(const char *s)
 {
-	char	*str;
+	size_t	i;
 
-	str = (char *) s;
-	while (n)
+	i = 0;
+	while (*(s + i))
 	{
-		n--;
-		str[n] = '\0';
+		i++;
 	}
+	return (i);
 }

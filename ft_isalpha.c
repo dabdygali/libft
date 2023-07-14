@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabdygal <dabdygal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/21 17:31:15 by dabdygal          #+#    #+#             */
-/*   Updated: 2023/07/12 15:19:38 by dabdygal         ###   ########.fr       */
+/*   Created: 2023/07/04 13:24:10 by dabdygal          #+#    #+#             */
+/*   Updated: 2023/07/04 13:28:19 by dabdygal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-void	ft_bzero(void *s, size_t n)
+int	ft_isalpha(int c)
 {
-	char	*str;
-
-	str = (char *) s;
-	while (n)
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
 	{
-		n--;
-		str[n] = '\0';
+		return (1);
+	}
+	else
+	{
+		return (0);
 	}
 }

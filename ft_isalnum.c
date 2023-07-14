@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabdygal <dabdygal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/22 12:52:52 by dabdygal          #+#    #+#             */
-/*   Updated: 2023/06/22 13:11:43 by dabdygal         ###   ########.fr       */
+/*   Created: 2023/07/04 13:45:02 by dabdygal          #+#    #+#             */
+/*   Updated: 2023/07/04 13:50:30 by dabdygal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+int	ft_isalnum(int c)
 {
-	char	*dest_str;
-	char	*src_str;
-	size_t		i;
-
-	dest_str = (char *) dest;
-	src_str = (char *) src;
-	i = 0;
-	while (i < n)
+	if ((c >= 48 && c <= 57) || (c >= 65 && c <= 90) || (c >= 97 && c <= 122))
 	{
-		dest_str[i] = src_str[i];
-		if (dest_str[i] == c)
-		{
-			return (dest + i + 1);
-		}
-		i++;
+		return (1);
 	}
-	return (NULL);
+	return (0);
 }

@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabdygal <dabdygal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/21 17:31:15 by dabdygal          #+#    #+#             */
-/*   Updated: 2023/07/12 15:19:38 by dabdygal         ###   ########.fr       */
+/*   Created: 2023/07/05 13:02:05 by dabdygal          #+#    #+#             */
+/*   Updated: 2023/07/10 14:24:03 by dabdygal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	char	*str;
+	char	*to_return;
 
-	str = (char *) s;
-	while (n)
+	to_return = NULL;
+	while (*s)
 	{
-		n--;
-		str[n] = '\0';
+		if (*s == (char) c)
+		{
+			to_return = (char *) s;
+		}
+		s++;
 	}
+	if (c == 0)
+	{
+		return ((char *) s);
+	}
+	return (to_return);
 }

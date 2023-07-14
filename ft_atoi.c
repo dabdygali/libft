@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabdygal <dabdygal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/21 17:31:15 by dabdygal          #+#    #+#             */
-/*   Updated: 2023/07/12 15:19:38 by dabdygal         ###   ########.fr       */
+/*   Created: 2023/07/06 12:44:43 by dabdygal          #+#    #+#             */
+/*   Updated: 2023/07/06 19:40:35 by dabdygal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-void	ft_bzero(void *s, size_t n)
+int	ft_atoi(const char *str)
 {
-	char	*str;
+	int	to_return;
+	int	sign;
 
-	str = (char *) s;
-	while (n)
+	to_return = 0;
+	sign = 1;
+	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
+		str++;
+	if (*str == '-')
 	{
-		n--;
-		str[n] = '\0';
+		sign = -1;
+		str++;
 	}
+	else
+		if (*str == '+')
+			str++;
+	while (*str == '0')
+		str++;
+	while (*str >= '0' && *str <= '9')
+	{
+		to_return = (to_return * 10) + (*str - '0');
+		str++;
+	}
+	to_return = sign * to_return;
+	return (to_return);
 }

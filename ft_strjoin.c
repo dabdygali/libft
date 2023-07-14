@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabdygal <dabdygal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/09 14:58:44 by dabdygal          #+#    #+#             */
-/*   Updated: 2023/07/12 17:28:17 by dabdygal         ###   ########.fr       */
+/*   Created: 2023/07/11 11:06:54 by dabdygal          #+#    #+#             */
+/*   Updated: 2023/07/11 11:59:19 by dabdygal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <limits.h>
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	void	*ptr;
-	size_t	total_size;
+	char	*strjoin;
+	size_t	len1;
+	size_t	len2;
 
-	if (count >= INT_MAX && size >= INT_MAX)
+	if (!s1 || !s2)
 		return (NULL);
-	if (size == 0 || count == 0)
-	{
-		count = 1;
-		size = 1;
-	}
-	if (count >= ((size_t) - 1) / size)
+	len1 = 0;
+	len2 = 0;
+	while (s1[len1])
+		len1++;
+	while (s2[len2])
+		len2++;
+	strjoin = (char *) malloc(sizeof(char) * (len1 + len2 + 1));
+	if (!strjoin)
 		return (NULL);
-	total_size = count * size;
-	ptr = (void *) malloc(total_size);
-	if (!ptr)
-		return (NULL);
-	while (total_size)
-	{
-		total_size--;
-		*(char *)(ptr + total_size) = 0;
-	}
-	return (ptr);
+	len1 = 0;
+	while (*s1)
+		strjoin[len1++] = *(s1++);
+	while (*s2)
+		strjoin[len1++] = *(s2++);
+	strjoin[len1] = 0;
+	return (strjoin);
 }

@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabdygal <dabdygal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/21 17:31:15 by dabdygal          #+#    #+#             */
-/*   Updated: 2023/07/12 15:19:38 by dabdygal         ###   ########.fr       */
+/*   Created: 2023/07/12 15:34:22 by dabdygal          #+#    #+#             */
+/*   Updated: 2023/07/12 15:56:49 by dabdygal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <unistd.h>
 
-void	ft_bzero(void *s, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*str;
+	long	i;
+	long	a;
+	char	c;
 
-	str = (char *) s;
-	while (n)
+	a = n;
+	if (a < 0)
 	{
-		n--;
-		str[n] = '\0';
+		write(fd, "-", sizeof(char));
+		a = -a;
+	}
+	i = 10;
+	while (a / i)
+		i *= 10;
+	i /= 10;
+	while (i > 0)
+	{
+		c = (char)((a / i) % 10 + 48);
+		write(fd, &c, sizeof(char));
+		i /= 10;
 	}
 }

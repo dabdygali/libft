@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabdygal <dabdygal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/21 17:31:15 by dabdygal          #+#    #+#             */
-/*   Updated: 2023/07/12 15:19:38 by dabdygal         ###   ########.fr       */
+/*   Created: 2023/07/05 15:53:22 by dabdygal          #+#    #+#             */
+/*   Updated: 2023/07/05 16:07:18 by dabdygal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void	ft_bzero(void *s, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char	*str;
+	size_t	i;
 
-	str = (char *) s;
-	while (n)
+	i = 0;
+	while (i < n)
 	{
-		n--;
-		str[n] = '\0';
+		if (*(unsigned char *)(s1 + i) != *(unsigned char *)(s2 + i))
+		{
+			return (*(unsigned char *)(s1 + i) - *(unsigned char *)(s2 + i));
+		}
+		i++;
 	}
+	return (0);
 }
